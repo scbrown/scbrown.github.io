@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steve Brown</title>
+<meta name="description" content="Steve Brown. AI enablement and agent-platform engineering: agent orchestration, code context, and governed knowledge for agent-written data.">
+<link rel="canonical" href="https://steve.brown.name/">
+<meta property="og:title" content="Steve Brown">
+<meta property="og:description" content="AI enablement and agent-platform engineering: agent orchestration, code context, and governed knowledge for agent-written data.">
+<meta property="og:type" content="profile">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5c5c66;
+    --rule: #e2e2e6;
+    --link: #1f5f9e;
+    --accent: #9b72aa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14141f;
+      --fg: #e8e8ee;
+      --muted: #9a9aa8;
+      --rule: #2d2d40;
+      --link: #7fb4e0;
+      --accent: #b48fc2;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 46rem; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+  h1 { font-size: 2.1rem; line-height: 1.15; margin: 0 0 .4rem; letter-spacing: -.02em; }
+  .tagline { color: var(--muted); font-size: 1.05rem; margin: 0 0 1.6rem; }
+  h2 {
+    font-size: .78rem; text-transform: uppercase; letter-spacing: .11em;
+    color: var(--muted); font-weight: 600;
+    margin: 3rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--rule);
+  }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  p { margin: 0 0 1rem; }
+  .intro { font-size: 1.06rem; }
+  .links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: 0; padding: 0; list-style: none; }
+  .links a { font-weight: 500; }
+  .item { margin-bottom: 1.5rem; }
+  .item-title { font-weight: 600; }
+  .item-meta { color: var(--muted); font-size: .9rem; }
+  .item p { margin: .25rem 0 0; color: var(--fg); }
+  .tag {
+    display: inline-block; font-size: .72rem; letter-spacing: .04em;
+    color: var(--accent); border: 1px solid var(--rule); border-radius: 999px;
+    padding: .05rem .5rem; margin-left: .4rem; vertical-align: 1px;
+  }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+  footer { margin-top: 4rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+<main>
+
+  <h1>Steve Brown</h1>
+  <p class="tagline">AI enablement and agent-platform engineering. Atlanta, GA.</p>
+
+  <p class="intro">
+    I build the AI tooling other engineers adopt: agent orchestration, structural code
+    context, and governed knowledge for data that agents write rather than humans curate.
+    Twenty years in production distributed systems before that.
+  </p>
+
+  <ul class="links">
+    <li><a href="https://github.com/scbrown">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/scbrown3">LinkedIn</a></li>
+    <li><a href="https://orcid.org/0009-0009-1720-1785">ORCID</a></li>
+    <li><a href="mailto:scbrown3@gmail.com">Email</a></li>
+  </ul>
+
+  <h2>Publications</h2>
+
+  <div class="item">
+    <div class="item-title">Quipu: A Governed Bitemporal Knowledge Graph Store</div>
+    <div class="item-meta">Preprint, 2026 &middot; <a href="https://doi.org/10.5281/zenodo.21878610">10.5281/zenodo.21878610</a></div>
+    <p>
+      Knowledge-graph stores still carry defaults set when humans curated them: accept writes
+      now and clean later, one time axis or none, every writer equally trusted, governance
+      left to dashboards. Quipu inverts all four. No fact enters except through a gate that
+      evaluates the pending post-state; data, trust labels, verdicts and the validation rules
+      themselves are bitemporal; and the governance specification and its signed verdicts are
+      facts in the store they govern, which makes the audit a query.
+      Archived artifact: <a href="https://doi.org/10.5281/zenodo.21878428">10.5281/zenodo.21878428</a>.
+    </p>
+  </div>
+
+  <h2>Projects</h2>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/scbrown/quipu">quipu</a><span class="tag">Rust</span></div>
+    <p>AI-native knowledge graph with strict ontology enforcement over RDF, SPARQL and SHACL. Governance as a write-path gate rather than a dashboard. 28 Model Context Protocol tools.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/scbrown/yupana">yupana</a><span class="tag">Rust</span></div>
+    <p>Live per-tenant code-structure engine. Answers what calls this, what flows into this, and what a change will break, by fusing call graphs, dataflow, co-change history and embeddings. Shared baseline plus per-developer overlays, so many humans and agents edit concurrently without corrupting each other's view.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/scbrown/bobbin">bobbin</a><span class="tag">Rust</span></div>
+    <p>Local-first code context engine for AI agents: hybrid search, git co-change coupling analysis, and MCP integration.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/scbrown/pixelsrc">pixelsrc</a><span class="tag">Rust</span></div>
+    <p>A GenAI-native pixel-art format and compiler. Semantic and human-readable, optimized for LLM generation, so no spatial reasoning is required.</p>
+  </div>
+
+  <h2>Contributions</h2>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/gastownhall/gastown">Gas Town</a> and <a href="https://github.com/gastownhall/beads">beads</a><span class="tag">Go</span></div>
+    <p>Multi-agent workspace manager for Claude Code, and a memory layer for coding agents. Fixes to agent-orchestration internals: re-spawn failures, premature worktree removal before merge, silently ignored workflow dependencies.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/aws/serverless-application-model">AWS Serverless Application Model</a></div>
+    <p>Added <code>VPCEndpointIds</code> support for private API Gateway endpoints.</p>
+  </div>
+
+  <footer>
+    <a href="https://github.com/scbrown">github.com/scbrown</a>
+  </footer>
+
+</main>
+</body>
+</html>
