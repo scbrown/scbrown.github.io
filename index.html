@@ -86,7 +86,7 @@
 
   <div class="item">
     <div class="item-title">Quipu: A Governed Bitemporal Knowledge Graph Store</div>
-    <div class="item-meta">Preprint, 2026 &middot; <a href="https://doi.org/10.5281/zenodo.21878610">10.5281/zenodo.21878610</a></div>
+    <div class="item-meta"><a href="https://arxiv.org/abs/2608.16813">arXiv:2608.16813</a> &middot; cs.AI, cross-listed cs.DB &middot; 2026 &middot; <a href="https://doi.org/10.5281/zenodo.21878610">10.5281/zenodo.21878610</a></div>
     <p>
       Knowledge-graph stores still carry defaults set when humans curated them: accept writes
       now and clean later, one time axis or none, every writer equally trusted, governance
@@ -98,7 +98,27 @@
     </p>
   </div>
 
+  <h2>Patents</h2>
+
+  <div class="item">
+    <div class="item-title">Four U.S. provisional applications</div>
+    <div class="item-meta">Filed 17 August 2026 &middot; sole inventor</div>
+    <p>
+      Covering the mechanisms behind the work below: event-driven context injection for
+      coding agents built on version-control provenance and self-supervised calibration;
+      a governed knowledge store with rollback-surviving signed verdicts, composable graph
+      labels and bitemporally versioned validation; deadline-fenced delegation of decision
+      surfaces from a synchronous engine to an asynchronous decision-maker; and
+      grounding-integrity machinery for machine-written knowledge, including
+      provenance-refusing ingress, quarantined inference with governed promotion, and
+      typed non-answers.
+    </p>
+  </div>
+
   <h2>Projects</h2>
+
+  <p class="item-meta">bobbin, quipu and yupana are one system rather than three side projects: retrieval,
+  governed knowledge and live code structure for agents. The rest are the pieces around it.</p>
 
   <div class="item">
     <div class="item-title"><a href="https://github.com/scbrown/quipu">quipu</a><span class="tag">Rust</span></div>
@@ -113,6 +133,31 @@
   <div class="item">
     <div class="item-title"><a href="https://github.com/scbrown/bobbin">bobbin</a><span class="tag">Rust</span></div>
     <p>Local-first code context engine for AI agents: hybrid search, git co-change coupling analysis, and MCP integration.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/scbrown/camayoc">camayoc</a><span class="tag">Python</span></div>
+    <p>The knot-keeper. Bootstrap ontology, knowledge ingress and portable knowledge packs for the quipu stack, so a store starts governed instead of being governed later.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/scbrown/shuttle">shuttle</a><span class="tag">Python</span></div>
+    <p>The workflow engine of the stack. Every transition signed, every window frozen, so what an agent did and what it was allowed to do stay the same record.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/scbrown/creel">creel</a><span class="tag">JavaScript</span></div>
+    <p>Parallel agent bursts that run entirely in the browser. Tabs as workers, WASM as the sandbox, the knowledge graph in the page. No server-side harness and no secrets held.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/scbrown/shantytown">shantytown</a><span class="tag">Python</span></div>
+    <p>A small harness for running a crew of coding agents. Create a work item, tell an agent to go get it; dispatch, escalation and recovery are the whole surface.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://github.com/scbrown/skein">skein</a><span class="tag">Python</span></div>
+    <p>Portable agentic skills for coding agents. Shell and HTTP only, no framework and no runtime: copy a directory in and it works.</p>
   </div>
 
   <div class="item">
