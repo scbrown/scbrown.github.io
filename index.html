@@ -123,12 +123,12 @@
 
   <div class="item">
     <div class="item-title"><a href="https://github.com/scbrown/quipu">quipu</a><span class="tag">Rust</span></div>
-    <p>AI-native knowledge graph with strict ontology enforcement over RDF, SPARQL and SHACL. Governance as a write-path gate rather than a dashboard. 28 Model Context Protocol tools.</p>
+    <p>AI-native knowledge graph with strict ontology enforcement over RDF, SPARQL and SHACL. Governance as a write-path gate rather than a dashboard. 28 Model Context Protocol tools. Compiles to WebAssembly, so the same governed store embeds directly in a browser page.</p>
   </div>
 
   <div class="item">
     <div class="item-title"><a href="https://github.com/scbrown/yupana">yupana</a><span class="tag">Rust</span></div>
-    <p>Live per-tenant code-structure engine. Answers what calls this, what flows into this, and what a change will break, by fusing call graphs, dataflow, co-change history and embeddings. Shared baseline plus per-developer overlays, so many humans and agents edit concurrently without corrupting each other's view.</p>
+    <p>Structural code intelligence and a change-time policy engine. Answers what calls this, what flows into this, and what a change will break, by fusing call graphs, dataflow, co-change history and embeddings. It also evaluates architectural rules authored in quipu against a proposed edit <em>before it lands</em>, emitting a signed verdict bound to what was checked, so a new constraint is a graph assertion rather than another bespoke linter. Shared baseline plus per-developer overlays, so many humans and agents edit concurrently without corrupting each other's view.</p>
   </div>
 
   <div class="item">
@@ -153,7 +153,7 @@
 
   <div class="item">
     <div class="item-title"><a href="https://github.com/scbrown/creel">creel</a><span class="tag">JavaScript</span></div>
-    <p>Parallel agent bursts that run entirely in the browser. Tabs as workers, WASM as the sandbox, the knowledge graph in the page. No server-side harness and no secrets held.</p>
+    <p>Parallel agent bursts that run entirely in the browser. Tabs as workers, WASM as the sandbox, and quipu compiled to WebAssembly living in the page, so every agent gets zero-token grounding before it acts. No server-side harness and no secrets held.</p>
   </div>
 
   <div class="item">
