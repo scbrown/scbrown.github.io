@@ -1,0 +1,4 @@
+# Keep validation and review artifacts out of the GitHub Pages output.
+exclude:
+  - tests
+  - docs/demos
