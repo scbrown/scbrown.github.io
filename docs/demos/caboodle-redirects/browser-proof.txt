@@ -1,0 +1,4 @@
+PASS /caboodle/index.html -> /tambo/index.html; query/hash preserved, fixed origin
+PASS /caboodle/introduction.html -> /tambo/introduction.html; query/hash preserved, fixed origin
+PASS /caboodle/reference.html -> /tambo/reference.html; query/hash preserved, fixed origin
+PASS JavaScript-disabled browser follows meta refresh
