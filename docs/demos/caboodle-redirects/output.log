@@ -1,0 +1,14 @@
+Script started on 2026-10-14 23:20:32-04:00 [COMMAND="sh docs/demos/caboodle-redirects/run.sh" <not executed on terminal>]
+Retained source baseline 6387d7aa: personal site has README + index; 0 compatibility HTML pages.
+test_all_retained_public_routes_have_fixed_same_origin_targets (test_redirects.Redirects.test_all_retained_public_routes_have_fixed_same_origin_targets) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+OK
+Actual compatibility HTML pages: 23
+/caboodle/index.html -> https://scbrown.github.io/tambo/index.html
+/caboodle/introduction.html -> https://scbrown.github.io/tambo/introduction.html
+/caboodle/reference.html -> https://scbrown.github.io/tambo/reference.html
+
+Script done on 2026-10-14 23:20:32-04:00 [COMMAND_EXIT_CODE="0"]
