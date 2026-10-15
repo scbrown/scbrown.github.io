@@ -1,0 +1,11 @@
+Script started on 2026-10-15 08:23:36-04:00 [COMMAND="python3 -m unittest discover -s tests -p test_tambo_stage.py -v" <not executed on terminal>]
+test_all_23_canonical_targets_and_local_assets (test_tambo_stage.Book.test_all_23_canonical_targets_and_local_assets) ... ok
+test_book_files_match_recorded_source_build (test_tambo_stage.Book.test_book_files_match_recorded_source_build) ... ok
+test_personal_files_unchanged (test_tambo_stage.Book.test_personal_files_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.047s
+
+OK
+
+Script done on 2026-10-15 08:23:36-04:00 [COMMAND_EXIT_CODE="0"]

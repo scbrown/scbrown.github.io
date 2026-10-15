@@ -1,0 +1,623 @@
+<!DOCTYPE HTML>
+<html lang="en" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Installing and removing - Tambo</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="The whole kit — one wizard that installs the stack, proves it works, and watches it run">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom/css/custom-37e0018b.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "coal";
+            const default_dark_theme = "coal";
+            window.path_to_searchindex_js = "searchindex-70c9feae.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-1b4e5637.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Tambo</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/scbrown/caboodle" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/scbrown/caboodle/edit/main/docs/book/src/installing.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="installing-and-removing-tambo"><a class="header" href="#installing-and-removing-tambo">Installing and removing Tambo</a></h1>
+<p>Tambo is the renamed Caboodle installer. For the transition release, both
+<code>tambo</code> and <code>caboodle</code> are available. Existing <code>caboodle-plan.toml</code> and
+<code>.caboodle</code> state paths remain compatible; no install-state move is required.
+The canonical archive is <code>tambo-vVERSION-TARGET.tar.gz</code>; a compatibility archive
+named <code>caboodle-vVERSION-TARGET.tar.gz</code> carries the same two commands for legacy
+self-update clients. Both have filename-bound SHA-256 checksum files.</p>
+<p>The planned managed Linux and macOS cutover uses apt and Homebrew to update
+both commands as a package after the first official Tambo release. The Homebrew
+formula rename will migrate <code>caboodle</code> to <code>tambo</code>; the Linux transitional
+<code>caboodle</code> package will depend on <code>tambo</code>. The checksummed release
+installer remains the standalone fallback. A standalone self-update of a
+dual-command installation verifies and updates both commands together, restoring
+both prior files and state if either installed read-back fails.</p>
+<p>Caboodle publishes a release only when a <code>vVERSION</code> tag exactly matches the
+version in <code>Cargo.toml</code>. Each supported archive has a sibling <code>.sha256</code> file;
+the installer verifies that checksum before replacing the binary.</p>
+<p>Caboodle’s built-in HTTPS asset downloads make at most three attempts. Server
+errors (HTTP 5xx) and transient resolution, connection, timeout, partial-transfer,
+send/receive or HTTP/2 stream errors are retried after one and then two seconds.
+Each attempt has a 10-second connection timeout and a 120-second transfer limit.
+Retry logs identify the URL, attempt, curl status, HTTP status and delay; recovery
+logs name the successful attempt. Failed attempts use disposable files.
+HTTP 4xx (including missing assets), certificate and local file errors fail
+immediately. Checksum verification happens after downloading and is never
+retried or bypassed. This policy covers downloads made by the Caboodle binary,
+not the bootstrap shell installer above it or external package managers.</p>
+<h2 id="release-install"><a class="header" href="#release-install">Release install</a></h2>
+<p>Run the checksummed release installer in one line:</p>
+<pre><code class="language-bash">curl -fsSL https://raw.githubusercontent.com/scbrown/caboodle/main/scripts/install.sh | bash
+</code></pre>
+<p>Pin a release by setting the version on the receiving shell:</p>
+<pre><code class="language-bash">curl -fsSL https://raw.githubusercontent.com/scbrown/caboodle/main/scripts/install.sh | CABOODLE_VERSION=vX.Y.Z bash
+</code></pre>
+<p>The script still verifies the release archive’s SHA256 checksum before replacing
+the binary. Read the <a href="https://github.com/scbrown/caboodle/blob/main/scripts/install.sh">installer source</a>
+when inspecting the bootstrap. After installation, <code>caboodle --version</code> reads
+back the installed release.</p>
+<p>The compatibility repository URL remains the bootstrap default through the
+rename. The installer prefers a <code>tambo-</code> archive with both commands. Only an
+HTTP 404 selects the historical <code>caboodle-</code> archive, which may contain just
+<code>caboodle</code>; pinned releases such as <code>v0.2.23</code> therefore remain installable.
+Checksum, server and transport failures stop installation without trying an
+alternative archive.</p>
+<p>Supported release targets are Linux x86_64, macOS x86_64, and macOS arm64.
+The default destination is <code>${CARGO_HOME:-$HOME/.cargo}/bin/caboodle</code>; override
+it with <code>CABOODLE_INSTALL_DIR</code> when that directory is managed elsewhere.</p>
+<p><code>caboodle --version</code> prints the release version and the commit it was built
+from, for example <code>caboodle 0.2.3 (1a2b3c4d5e6f)</code>. Two builds of one release
+can then be told apart. The installer warns when a different <code>caboodle</code> comes
+earlier on PATH than the one it just installed, and <code>caboodle doctor</code> warns when
+PATH runs a different build from the one you invoked. Remove the stale copy or
+reorder PATH.</p>
+<h2 id="source-install"><a class="header" href="#source-install">Source install</a></h2>
+<p>A Rust toolchain can install the reviewed revision directly:</p>
+<pre><code class="language-bash">cargo install --git https://github.com/scbrown/caboodle \
+  --rev &lt;reviewed-commit-sha&gt; --locked
+caboodle --version
+</code></pre>
+<h2 id="preflight"><a class="header" href="#preflight">Preflight</a></h2>
+<p><code>caboodle doctor</code> reports what would stop an install on this host and changes
+nothing. With a plan in the current directory it checks that plan; without one
+it checks every tool in the <code>everything</code> profile. It exits nonzero when any line
+is a <code>FAIL</code>:</p>
+<ul>
+<li>the install directory (<code>$CARGO_HOME/bin</code>, default <code>~/.cargo/bin</code>) is not on
+PATH, so installed tools could not be read back;</li>
+<li>a command an install or verification step shells out to is missing (<code>curl</code>,
+<code>tar</code>, <code>git</code>, <code>bash</code>, <code>python3</code>, <code>sha256sum</code>, <code>go</code> for Desire Path, <code>cargo</code>
+for the lancedb Quipu flavor);</li>
+<li>a selected tool is not installed and has no reviewed release for this
+platform (for example, Yupana on Linux arm64), with the source build
+to run instead.</li>
+</ul>
+<p>It warns, without failing, when a tool differs from the reviewed version, when
+several copies of a tool are on PATH (the first one runs), and when a Quipu
+server is already live at <code>QUIPU_SERVER</code>. Camayoc verification uses its own
+temporary server and never loads the ontology into that existing server.</p>
+<h2 id="first-proof-and-resume"><a class="header" href="#first-proof-and-resume">First proof and resume</a></h2>
+<p>The interview writes a plan and changes nothing else. Read the complete file
+before applying it:</p>
+<pre><code class="language-bash">caboodle init --guided
+less caboodle-plan.toml
+caboodle install
+caboodle verify-questions
+</code></pre>
+<p>If input or an install is interrupted, rerun the same command. Interview
+answers resume from <code>.caboodle/interview.toml</code>; install state resumes from
+<code>.caboodle/state.json</code>. A green result means version read-back and functional
+reader-path checks passed, not merely that an installer exited zero.</p>
+<p>If a tool cannot install or pass version read-back, <code>apply</code> and <code>install</code>
+continue attempting the remaining tools, save each success, and exit nonzero
+with all tool failures. Any saved proof for a failed tool is cleared. Stack
+configuration, model provisioning, crew setup, share imports and functional
+verification wait until every selected tool applies successfully. Fix the
+reported gaps, then rerun the same command; already-current tools are reused.
+State-write and evidence-queue failures still stop immediately.</p>
+<p>Two plan-level choices extend what the box installs, both documented with
+their proofs in <a href="profiles.html">Profiles</a>: <code>--quipu-flavor lancedb</code> builds the
+reviewed Quipu revision with the lancedb feature compiled in (proven by the
+server’s <code>GET /version</code> per-feature compile map), and
+<code>--embedding-model &lt;spec.toml&gt;</code> provisions checksum-pinned embedding-model
+artifacts (a mismatched download is deleted and fails the step; verify
+re-hashes the artifacts on disk).</p>
+<h2 id="registering-mcp-servers"><a class="header" href="#registering-mcp-servers">Registering MCP servers</a></h2>
+<p>Caboodle owns binary installation, version convergence, and functional proof.
+Shantytown owns harness registration: it projects the MCP/skill manifest from
+Quipu into the workspaces named by the rig’s crew cards. Installing binaries
+alone does not register servers.</p>
+<p>After a green install, on a configured Shantytown rig:</p>
+<pre><code class="language-bash">caboodle project-settings --root /path/to/.shanty
+# Optional: select one crew member or read identities directly from Quipu.
+caboodle project-settings --root /path/to/.shanty --agent ada --registry quipu
+</code></pre>
+<p>This delegates to <code>st --root /path/to/.shanty ops provision --json</code>. It reads the
+rig’s existing crew, even when the installation plan has no crew profile, and
+requires the configured Quipu tooling manifest (<code>SHANTY_TOOLING_MANIFEST</code>).
+Server names, transports, and secret references come from that manifest; Caboodle
+does not maintain another server list. A rig whose manifest names yupana, bobbin,
+forgejo, and homelab registers all four. A missing crew reports
+“no crew on this rig yet - run st fleet init / st agent new first”. Missing
+manifest, credentials, or failed read-back refuses registration. This needs a
+Shantytown version exposing <code>st ops provision</code>; upgrade st if it rejects the command.
+No agents are launched or restarted. Existing sessions need their next normal
+start to load the new registration.</p>
+<p><code>--policy-only</code> retains the old plan-based policy-summary export to
+<code>caboodle-settings/</code> (<code>--plan</code> and <code>--output</code> customize it). Those summaries do
+not register MCP servers. Normal registration does not read the install plan.</p>
+<p>For a standalone harness, or until the adapter is available, register explicitly.
+For Claude Code, substitute your deployment’s reviewed HTTP MCP endpoints:</p>
+<pre><code class="language-bash">claude mcp add bobbin -- "$(command -v bobbin)" serve "$PWD"
+claude mcp add yupana -- "$(command -v yupana)" serve
+claude mcp add --transport http forgejo https://forgejo-mcp.example.com/mcp
+claude mcp add --transport http homelab https://homelab-mcp.example.com/mcp
+claude mcp list
+</code></pre>
+<p>Homelab MCP exposes the <code>quipu_*</code> tools; it is a separately operated proxy, not
+installed by Caboodle. Use your deployment’s authentication procedure without
+putting credentials in the plan. Bobbin’s knowledge tools are not a replacement
+for Homelab’s Quipu tools. HTTP endpoints above are placeholders, not public
+services. For Codex, use the rig adapter to emit its harness-specific settings.</p>
+<h2 id="claude-code-cloud-environments"><a class="header" href="#claude-code-cloud-environments">Claude Code cloud environments</a></h2>
+<p><code>scripts/setup-environment.sh</code> is the version-controlled copy of the setup
+script for a Claude Code cloud environment. Paste its body into the Setup
+script field (claude.ai/code → the cloud icon above the message box →
+Add/edit environment) — the field takes a script, not a path, and it runs
+before the repo is available, which is why the file exists to be pasted from
+rather than executed.</p>
+<p>It bootstraps quipu (checksummed prebuilt <code>quipu</code> and <code>quipu-server</code> release
+binaries), caboodle itself (prebuilt release binary via <code>scripts/install.sh</code>),
+the shared tooling the stack’s quality gates need (<code>just</code>, <code>bd</code>,
+<code>pre-commit</code>, <code>mdbook</code>, <code>mdbook-mermaid</code>, <code>cffi</code>), and stages the stack
+knowledge packs into <code>~/.caboodle/packs/</code>, verified with
+<code>quipu pack --verify</code> — a pack that fails verification is deleted rather
+than trusted. It deliberately does <strong>not</strong> build the rest of the corpus:
+that is caboodle’s own job, and a session that needs the full stack runs
+<code>caboodle install</code> against a reviewed plan so every tool is proved rather
+than assumed.</p>
+<p>Set <code>CABOODLE_ALLOW_SOURCE_FALLBACK=1</code> only when the Quipu release artifact is
+unavailable and the environment has enough time and memory for a Rust build.
+The normal setup path never compiles Quipu from source.</p>
+<p>Owned Quipu installs provide <code>qp</code> as a relative link to <code>quipu</code>. Both command
+names execute the same CLI; <code>quipu</code> remains supported. Apply repairs a missing
+alias on a current pair without reinstalling or downgrading that pair. Existing
+conflicting <code>qp</code> files in the destination or on PATH cause refusal. Verification
+checks the link, executable identity and matching version output without creating
+files. <code>--skip-install</code> requires the alias to be present already.</p>
+<p>An externally owned Quipu must provide its own command alias; Caboodle verifies
+it but does not create it. A paired release update retains the alias across a
+CLI replacement or rollback because the link follows the canonical <code>quipu</code> path.</p>
+<p>Hosts that only ever run <code>update-self</code> (such as a scheduled installer consumer)
+never run apply, so <code>update-self</code> also heals the alias. After a verified swap it
+runs the newly installed binary once to repair the owned directory
+(<code>$CARGO_HOME/bin</code>, default <code>~/.cargo/bin</code>). That pass creates a missing <code>qp</code>, or
+re-points a <code>qp</code> symlink with the wrong or a dangling target. A regular file or
+directory named <code>qp</code> is foreign: it is reported and left in place. A failed
+repair is reported but never fails the update. Because the old binary performs
+the swap, the first release carrying this behaviour repairs on the update after
+it.</p>
+<h2 id="stack-knowledge-packs"><a class="header" href="#stack-knowledge-packs">Stack knowledge packs</a></h2>
+<p><code>packs/</code> carries quipu knowledge packs for working with the stack:</p>
+<ul>
+<li><code>stack-map/pendant/</code> — what each tool is, where it lives, and how the
+pieces relate.</li>
+<li><code>stack-operations/pendant/</code> — how each repo builds, tests, and proves
+itself, and the git discipline that binds them.</li>
+</ul>
+<p>A pendant is the artifact once called a qpack (named for the khipu’s pendant
+cords, each a self-contained record hanging from the primary cord). The old
+Each directory contains <code>manifest.json</code>, <code>manifest.ttl</code>, canonical <code>export.nt</code>
+and <code>shapes.ttl</code>. SQLite databases are scratch build inputs, not repository
+artifacts. The former <code>.pendant.db</code> and <code>.qpack.db</code> paths remain symlinks to
+these directories, so directory-based imports can retain their old paths.
+They are <strong>directory aliases</strong>, not binary SQLite packs. Use <code>quipu import</code>,
+not <code>quipu unpack</code> or <code>quipu pack --verify</code>, for these new artifacts. Previously
+published binary packs retain their original binary consumer commands.
+Alias removal is separate from this conversion and is not scheduled before
+the release after the announced 0.14 deprecation.</p>
+<pre><code class="language-bash">quipu import packs/stack-map/pendant --db scratch.db
+quipu import packs/stack-operations/pendant --db scratch.db
+</code></pre>
+<p>Import verifies the bundle’s hashes and stages or quarantines its graph; it
+does not promote it automatically. These shares intentionally contain no
+domain shapes or stored queries. An empty receiver quarantines <code>stack-map</code>
+because <code>https://caboodle.dev/ns#StackComponent</code> is outside its local vocabulary.
+Configure reviewed receiver shapes for that class before expecting admission.
+Hash integrity alone is not vocabulary, shape or producer certification.</p>
+<p>The Turtle sources in <code>packs/src/</code> remain the review surface.
+<code>scripts/build-stack-packs.sh</code> rebuilds and verifies both bundles before
+replacing output; a failed build or native verification preserves existing
+bundles. Rebuild by hand when sources change: creation time and source identity
+can change manifests without changing the semantic graph. Python 3 and Quipu
+with text-share support are required. <code>PACKS_OUTPUT_DIR</code> selects an isolated
+output root for experiments; <code>python3 scripts/test-stack-pendants.py</code> exercises
+native integrity, quarantine, tamper refusal and failure preservation.</p>
+<h3 id="shipping-a-pack-from-a-repository"><a class="header" href="#shipping-a-pack-from-a-repository">Shipping a pack from a repository</a></h3>
+<p>Each repository can publish its graph beside its release binaries as a Quipu
+share. A <code>.pendant.tar.gz</code> release asset is a deterministic archive of the same
+text bundle, not a SQLite database:</p>
+<pre><code class="language-bash">quipu share --graph https://example.org/knowledge/repository/example \
+  --db .bobbin/quipu/quipu.db --out repository-share
+tar --sort=name --mtime=@0 --owner=0 --group=0 --numeric-owner \
+  -czf repository.pendant.tar.gz -C repository-share .
+</code></pre>
+<p>Publish the archive as an immutable release asset. A clone points Quipu at the
+asset; Quipu fetches bounded bytes, verifies the manifest and payload, and opens
+a fresh in-memory store without a local download step:</p>
+<pre><code class="language-bash">quipu import \
+  https://github.com/scbrown/quipu/releases/download/quipu-ai-v0.11.1/quipu-quipu-ai-v0.11.1-repository.qpack.tar.gz
+</code></pre>
+<p>Releases still publish the asset as <code>*-repository.qpack.tar.gz</code> (checked on
+quipu-ai-v0.11.1). The pendant rename has not shipped yet; when it does, the
+asset becomes <code>*-repository.pendant.tar.gz</code>.</p>
+<p>For a modified graph, <code>quipu share --since &lt;parent-share&gt; --out &lt;delta-dir&gt;</code>
+writes a parent-bound SPARQL 1.1 Update delta. Import rejects a wrong parent,
+changed update bytes, unrestricted operations, or a mismatched result digest.
+Bobbin’s <code>.bbpack</code> index remains a separate binary release artifact.</p>
+<h2 id="uninstall"><a class="header" href="#uninstall">Uninstall</a></h2>
+<p>Remove only the Caboodle binary and optional local Caboodle state. Installed
+corpus tools are intentionally left in place because they may be shared with
+other workflows:</p>
+<pre><code class="language-bash">rm "${CARGO_HOME:-$HOME/.cargo}/bin/caboodle"
+# Optional, from the directory where Caboodle was run:
+rm -r .caboodle
+</code></pre>
+<h2 id="reviewed-pin-drift"><a class="header" href="#reviewed-pin-drift">Reviewed-pin drift</a></h2>
+<p><code>caboodle check-updates</code> proposes an update only when the installed version is
+older than the reviewed pin. A newer version is reported as ahead of the pin;
+an unparseable or same-version identity mismatch is reported as version drift.
+These reports remain nonzero because the installation differs from the review.
+<code>caboodle update</code> refuses a reviewed-pin downgrade before replacing the tool.
+There is no <code>--allow-downgrade</code> escape: a deliberate rollback requires a separately
+reviewed installation, rather than a normal stack update.</p>
+<h2 id="opt-in-published-binary-updates"><a class="header" href="#opt-in-published-binary-updates">Opt-in published binary updates</a></h2>
+<p>After the initial install and plan review, track published stable releases for a
+selected binary without waiting for this Caboodle build’s reviewed pins to change:</p>
+<pre><code class="language-bash">caboodle update-release --tool bobbin --check
+caboodle update-release --tool bobbin
+caboodle update-release --tool yupana
+caboodle update-release --tool desire-path
+</code></pre>
+<p>This path currently supports Linux x86_64. The tool must already be installed on
+PATH and selected in the retained plan. <code>--plan</code> and <code>--state</code> select the existing
+files; the command never starts a new interview or changes the selected profile.
+Each invocation changes one tool, not the whole stack. Quipu server/CLI source
+convergence, Camayoc source bundles, and crew runtime updates retain their own
+contracts and are not silently included.</p>
+<p>The updater resolves GitHub’s latest published stable release, requires the named
+binary archive and checksum asset, checks the downloaded SHA256 and executable’s
+version, then atomically replaces the PATH entry. Symlink targets are not written
+through. It retains the previous bytes, runs the existing adapter’s functional
+verification, and only then records the new version as verified. Failed proof
+restores the backup. An interrupted update leaves a journal; the next invocation
+restores its previous artifact before doing anything else, including during a hold.</p>
+<p>A numerically newer installed version is preserved. Equal versions with different
+binary bytes are ambiguous (for example a source build ahead of its release) and
+are refused. Unreadable versions, missing assets and wrong checksums are errors,
+never evidence of a current install. The older reviewed-pin <code>update</code> path also
+refuses to replace a newer installed binary or an ambiguous equal-version build.
+For initial or missing installations, use <code>apply</code> first.</p>
+<p>Create <code>~/.caboodle/hold</code> to defer new release lookup and installation, or set
+<code>CABOODLE_HOLD_FILE</code> to a shared host hold path. The updater uses an OS-held lock
+beside the state file to serialize release updates; backups are retained under
+<code>release-backups/&lt;binary&gt;/&lt;sha256&gt;</code> in the same directory. A host scheduler must
+bound total runtime and retain stdout/stderr. This command does not itself install
+a timer or claim that another host or a long-running process has updated.</p>
+<p><code>caboodle update-self</code> applies the same release, checksum, downgrade, backup and
+interruption-recovery controls to Caboodle itself. Its post-install contract
+requires the new binary’s version and <code>update-release --help</code> to answer correctly.
+Self-update supports Linux x86_64, macOS x86_64, and macOS arm64, selecting the
+matching published archive and its <code>.sha256</code> asset. Other platforms refuse before
+release lookup. The extracted executable is written as a new file rather than
+restoring archive metadata, so archive extended attributes are not installed.
+Event consumers can select an exact stable release with <code>update-self --tag v0.2.14</code>.
+To bind the download to evidence obtained before installation, also supply
+<code>--archive-sha256</code> and <code>--binary-sha256</code>. Both values must be lowercase SHA256
+digests; both flags require the exact tag and each other. CABOODLE compares the
+archive before extraction and the executable before running it or replacing the
+installed copy. A mismatch leaves the previous installer and state intact.</p>
+<p>Use <code>update-self --check</code> to inspect metadata; it does not download artifacts or
+prove either supplied hash. Bootstrap from a published release
+before scheduling this command; a same-version source build with different bytes
+is deliberately refused rather than silently overwritten. It replaces the copy
+PATH runs; when you invoke a different copy by its full path, it says that copy
+was not changed.</p>
+<h2 id="installed-files"><a class="header" href="#installed-files">Installed files</a></h2>
+<ul>
+<li>Binaries in <code>~/.cargo/bin</code> (or <code>$CARGO_HOME/bin</code>). Keep that directory on your
+PATH, <strong>ahead of</strong> any other directory that holds an older copy of the same tool
+(<code>~/.local/bin</code> is the usual one). The shell runs the first copy it finds.</li>
+<li>Unpacked releases under <code>~/.local/share/caboodle/</code>.</li>
+<li>One setting, <code>[quipu.owl] reactive_materialize = true</code>, merged into
+<code>~/.config/bobbin/config.toml</code>. Other settings in that file are kept.</li>
+<li>In the directory you ran it from: <code>caboodle-plan.toml</code> and <code>.caboodle/</code> (interview,
+state, queued install records).</li>
+</ul>
+<p>Every verification check uses a throwaway directory, camayoc’s included. The camayoc
+check starts its own <code>quipu-server</code> on a free localhost port with a temporary store,
+loads camayoc’s vocabulary and one marker node into it, and stops it afterwards. It
+never touches the server at <code>QUIPU_SERVER</code>. To set camayoc up against your real quipu
+server, run the bundle’s bootstrap yourself as a separate step:
+<code>QUIPU_SERVER=&lt;your server&gt; bash ~/.local/share/caboodle/camayoc/&lt;revision&gt;/scripts/bootstrap.sh</code>.</p>
+<p>To remove caboodle, delete <code>~/.cargo/bin/caboodle</code> and the <code>.caboodle/</code>
+directory. Installed tools stay, because other workflows may use them. The
+<a href="installing.html">install guide</a> covers release pins, source
+installs, and updates.</p>
+<h2 id="platform-prerequisites"><a class="header" href="#platform-prerequisites">Platform prerequisites</a></h2>
+<p><strong>Platforms.</strong> Linux x86_64 needs no Rust toolchain: each tool comes from a
+checksummed release or source archive, and Go builds desire-path. On other
+platforms, availability depends on the tool as shown below; <code>caboodle doctor</code>
+prints the exact source-build command where no reviewed release exists.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th></th><th>Linux x86_64</th><th>macOS arm64</th><th>macOS x86_64</th><th>Linux arm64</th></tr>
+</thead>
+<tbody>
+<tr><td>caboodle</td><td>release</td><td>release</td><td>release</td><td>build with <code>cargo install --git</code></td></tr>
+<tr><td>quipu</td><td>release</td><td>release</td><td>release</td><td>release</td></tr>
+<tr><td>camayoc</td><td>source archive</td><td>source archive</td><td>source archive</td><td>source archive</td></tr>
+<tr><td>bobbin</td><td>release</td><td>release</td><td>release</td><td>release</td></tr>
+<tr><td>yupana</td><td>release</td><td>release</td><td>release</td><td>build with cargo</td></tr>
+<tr><td>desire-path</td><td>built with Go</td><td>built with Go</td><td>built with Go</td><td>built with Go</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Commands on PATH.</strong> <code>curl</code>, <code>tar</code>, <code>git</code>, <code>bash</code>, <code>python3</code>, and <code>sha256sum</code>
+(<code>brew install coreutils</code> supplies <code>sha256sum</code> on macOS). Yupana verifies its
+three pinned v0.12.7 archives in-process and needs only <code>curl</code> and <code>tar</code> for installation. The <code>everything</code>
+profile also needs Go 1.22+. Rust is only needed for the source builds above.</p>
+<p><strong>Accounts and servers.</strong> None. Nothing talks to a private network, and no
+token is needed to install. A token (<code>QUIPU_AUTH_TOKEN</code>) matters only when you
+send install records to a remote quipu with <code>flush-episodes</code>.</p>
+<h2 id="seeds-successful-update-rollback"><a class="header" href="#seeds-successful-update-rollback">Seeds successful-update rollback</a></h2>
+<p><code>rollback-seeds</code> restores only the prior Seeds artifact retained by the last
+successful <code>update-release --tool seeds</code>. It requires the same selected plan,
+state file, executable path and exact current/prior SHA256 values:</p>
+<pre><code class="language-bash">caboodle rollback-seeds --plan crew.toml --state state.json \
+  --current-sha256 &lt;installed-sha256&gt; --prior-sha256 &lt;retained-prior-sha256&gt;
+</code></pre>
+<p>The successful update records a Seeds receipt bound to the plan, state bytes,
+paths, versions and both artifact hashes. Missing receipts, changed state,
+wrong hashes, corrupt backups, symlinks, held updates and lock contention refuse
+before replacing Seeds. A hold is any directory entry, including a dangling
+symlink. Unknown hold-path configuration or metadata errors block execution;
+only a definitely absent entry permits it. Other tools retain their state. A successful rollback
+runs the existing isolated functional verifier and consumes the receipt.
+A failed rollback verifier restores the current artifact and retains the state.
+An interrupted rollback uses normal release journal recovery, restoring the
+current artifact and invalidating only Seeds verification; it must earn fresh
+proof before a later operation. This is not a general downgrade override.</p>
+<p>Legacy updates without this receipt do not qualify. A private implementation
+or test does not authorize publication or adoption; follow the applicable review
+and deployment contract before using it on an installed tool.</p>
+<p>Maintainers can verify an embedded Rust release member before publishing a pin:</p>
+<pre><code class="language-bash">caboodle verify-member seeds
+</code></pre>
+<p>This stages the archive pinned by that Caboodle checkout, checks its digest,
+identity and version, and runs the manifest’s functional steps in temporary
+roots. It does not install a managed program. The <code>caboodle-verify</code> CI job runs
+this command against the PR checkout; Seeds pin automation requires that exact
+check to complete successfully, alongside the rest of CI.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="getting-started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="agents.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="getting-started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="agents.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
