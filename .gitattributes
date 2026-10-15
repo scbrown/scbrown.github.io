@@ -1,1 +1,3 @@
+# Preserve byte-identical generated book assets and terminal replay timing.
 tambo/** -whitespace
+docs/demos/** -whitespace
