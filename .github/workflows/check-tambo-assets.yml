@@ -13,7 +13,9 @@ jobs:
           source: ./
           destination: ./_site
       - run: |
+          # Jekyll intentionally omits the hidden mdBook marker; verify all public assets.
+          sed '/  tambo\/.nojekyll$/d' tests/tambo-assets.sha256 > /tmp/tambo-public-assets.sha256
           cd _site
-          sha256sum --check ../tests/tambo-assets.sha256
+          sha256sum --check /tmp/tambo-public-assets.sha256
           test ! -e tests
           test ! -e docs/demos
