@@ -1,0 +1,21 @@
+name: Tambo staged assets
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  asset-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - run: sha256sum --check tests/tambo-assets.sha256
+      - uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697
+        with:
+          source: ./
+          destination: ./_site
+      - run: |
+          # Jekyll intentionally omits the hidden mdBook marker; verify all public assets.
+          sed '/  tambo\/.nojekyll$/d' tests/tambo-assets.sha256 > /tmp/tambo-public-assets.sha256
+          cd _site
+          sha256sum --check /tmp/tambo-public-assets.sha256
+          test ! -e tests
+          test ! -e docs/demos
