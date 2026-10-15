@@ -1,0 +1,10 @@
+name: Tambo staged assets
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  asset-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - run: sha256sum --check tests/tambo-assets.sha256
