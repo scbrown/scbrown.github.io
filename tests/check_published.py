@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 import sys
+from check_quechua_published import check as check_quechua
 
 source = Path(__file__).resolve().parents[1]
 site = Path(sys.argv[1]).resolve()
@@ -14,3 +15,5 @@ assert (site / "index.html").read_bytes() == (source / "index.html").read_bytes(
 assert not (site / "tests").exists(), "tests leaked into Pages output"
 assert not (site / "docs/demos").exists(), "demo artifacts leaked into Pages output"
 print(f"PASS actual Pages artifact: {len(routes)} routes, unchanged homepage, no tests/demo artifacts")
+
+check_quechua(site)

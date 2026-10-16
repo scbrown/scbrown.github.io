@@ -1,0 +1,19 @@
+{
+  "source_repository": "https://github.com/scbrown/quechua",
+  "source_commit": "04071d1b4340692d0b33ed5aca856dd3b994efce",
+  "scope": "legacy namespace only; project Pages shadows these until transfer",
+  "files": [
+    {
+      "source_path": "ns.ttl",
+      "published_path": "quechua/ns.ttl",
+      "bytes": 80691,
+      "sha256": "845859d441a4f46fab9b9a2860426b168673745ba80a718dd97d817f63c783ca"
+    },
+    {
+      "source_path": "ns.html",
+      "published_path": "quechua/ns.html",
+      "bytes": 45195,
+      "sha256": "cd1dd0ac09da984798cafb55234e8f40bbf660c4de757251cf558639d603129b"
+    }
+  ]
+}

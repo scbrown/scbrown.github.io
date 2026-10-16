@@ -1,0 +1,5 @@
+# Legacy Quechua namespace fallback
+
+The two static files retain the exact reviewed legacy representations; their ontology identifiers, HTML anchors and bytes are unchanged. The manifest binds source repository, commit, path, size and SHA256. CI checks the actual Jekyll output, including same-length corruption and missing-file refusal controls. The personal homepage and existing book routes remain covered by their original checks.
+
+This stages a fallback only. The existing project Pages site currently shadows these paths. Before any transfer, compare the manifest to the latest legacy catalog and refresh through review if needed. At cutover measure the original URLs, MIME types and bytes again, including a known route and unknown-path control. A source or build PASS cannot establish active public routing. Rollback transfer/routing through the named migration plan; never recreate the old repository name, which would destroy GitHub source redirects. No store identifiers or consumer configuration change here. This is not coverage of other books or the entire repository transfer.
