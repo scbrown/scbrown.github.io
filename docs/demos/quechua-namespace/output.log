@@ -1,0 +1,17 @@
+Script started on 2026-10-16 03:37:26-04:00 [COMMAND="stty -onlcr; /usr/bin/python3 docs/demos/quechua-namespace/reproduce.py" <not executed on terminal>]
+BASE quechua/ns.ttl present=False
+BASE quechua/ns.html present=False
+BASE caboodle/index.html present=True
+CANDIDATE exact legacy namespace source check:
+PASS two exact legacy namespace representations (artifact proof only)
+Missing and same-length-corruption controls:
+test_corrupted_or_missing_artifact_refuses (test_quechua_stage.QuechuaStage.test_corrupted_or_missing_artifact_refuses) ... ok
+test_source (test_quechua_stage.QuechuaStage.test_source) ... PASS two exact legacy namespace representations (artifact proof only)
+ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.005s
+
+OK
+
+Script done on 2026-10-16 03:37:26-04:00 [COMMAND_EXIT_CODE="0"]
