@@ -11,7 +11,7 @@ MANIFEST = ROOT / "tests/quechua-legacy-manifest.json"
 def check(site):
     manifest = json.loads(MANIFEST.read_text())
     assert manifest["source_repository"] == "https://github.com/scbrown/quechua"
-    assert manifest["source_commit"] == "04071d1b4340692d0b33ed5aca856dd3b994efce"
+    assert manifest["source_commit"] == "e24cb7a3480c261948465392344f0e3f3495ce21"
     entries = manifest["files"]
     assert [entry["published_path"] for entry in entries] == ["quechua/ns.ttl", "quechua/ns.html"]
     for entry in entries:

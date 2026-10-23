@@ -6,7 +6,7 @@
 
 # The release this catalog is. Bumped with a CHANGELOG section; the release
 # lane refuses a tag that disagrees with it.
-<https://scbrown.github.io/quechua/ns> a owl:Ontology ; owl:versionInfo "0.7.0" . # x-release-please-version
+<https://scbrown.github.io/quechua/ns> a owl:Ontology ; owl:versionInfo "0.9.0" . # x-release-please-version
 
 <https://scbrown.github.io/quechua/ns#APIEndpoint> a rdfs:Class ; rdfs:label "APIEndpoint" ; owl:deprecated true ; dcterms:isReplacedBy <https://schema.org/EntryPoint> .
 <https://scbrown.github.io/quechua/ns#AgentTool> a rdfs:Class ; rdfs:label "AgentTool" ; owl:deprecated true ; dcterms:isReplacedBy <https://schema.org/SoftwareApplication> .
