@@ -24,8 +24,8 @@ work on typed memory and lifecycles (Quipu) came from.
 | 2026-02-22 | (code) | The tools shipped in the homelab MCP server. Records are Markdown with YAML frontmatter and ULID ids, plus a `catalog.jsonl` index, stored on CT 228 (`hla.lan`). |
 | 2026-02-23 | [`hla-auto-update-stiwi-wants.md`](designs/hla-auto-update-stiwi-wants.md), [`hla-broadcast.md`](designs/hla-broadcast.md) | Keeping a living "what Stiwi wants" document in sync; broadcasting new directives to the crew (broadcast was later retired unbuilt). |
 | 2026-02-26 | [`hla-two-tier-authority.md`](designs/hla-two-tier-authority.md) | Two authority tiers: admin vs user, for more than one human. |
-| 2026-02-27 | [`pensieve.md`](designs/pensieve.md) | The agent-side counterpart: aggregate and index the agents' own memory files. |
-| 2026-03-01 | [`hla-repo-extraction.md`](designs/hla-repo-extraction.md) | Should HLA be its own repo? (~240 lines of HLA plus ~200 of Pensieve inside a ~2,900-line MCP monolith.) |
+| 2026-02-27 | [`pensieve-plan.md`](designs/pensieve-plan.md), [`pensieve.md`](designs/pensieve.md) | Pensieve, the agent-side counterpart (named for Dumbledore's memory basin): a harvester copies every agent's memory files into one shared, searchable archive every two hours. |
+| 2026-03-01 | [`hla-repo-extraction.md`](designs/hla-repo-extraction.md), [`hla-extraction-evaluation.md`](designs/hla-extraction-evaluation.md) | Should HLA be its own repo? (~240 lines of HLA plus ~200 of Pensieve inside a ~2,900-line MCP monolith.) |
 | 2026-03-02 | [`hla-read-pipeline-broken.md`](designs/hla-read-pipeline-broken.md) | Reads were stale: 125 records stored, 7 searchable. The write path worked; the read path didn't. |
 | 2026-03-02 | (infra) | CT 228 decommissioned; data moved to Garage S3, FUSE-mounted on `automation.lan`. |
 | 2026-03-27 | [`koror-kota-recovery.md`](designs/koror-kota-recovery.md) | P0: the main Proxmox host (koror) is down; triage and standup on kota. |
